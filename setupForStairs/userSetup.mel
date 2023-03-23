@@ -1,0 +1,5 @@
+setParent $gMainWindow;
+
+menu -label "Scripts" -tearOff true;
+    menuItem -label "Stairs" -command "stairsWindow";
+    menuItem -divider true;

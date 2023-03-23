@@ -1,0 +1,26 @@
+global proc stairsWindow(){
+	if (`window -exists stairs`){
+    deleteUI stairs;}
+	window -title "Stairs" -widthHeight 600 400 stairs;
+	columnLayout;
+		intSliderGrp -label "Step Number" -field true sliderNumber;
+		floatSliderGrp -label "Step Width" -field true sliderW;
+		floatSliderGrp -label "Step Height" -field true sliderH;
+		floatSliderGrp -label "Step Depth" -field true sliderD;
+		floatSliderGrp -label "Railing Height" -field true railingH;
+		floatSliderGrp -label "Railing Radius" -field true railingR;
+		floatSliderGrp -label "Handrail Radius" -field true handrailR;
+		button -label "Make" -command "makeSt";
+	showWindow stairs;
+}
+
+global proc makeSt(){
+    int $stepNumber = `intSliderGrp -q -value "sliderNumber"`;
+    float $stepW = `floatSliderGrp -q -value "sliderW"`;
+    float $stepH = `floatSliderGrp -q -value "sliderH"`;
+    float $stepD = `floatSliderGrp -q -value "sliderD"`;
+	float $railingH = `floatSliderGrp -q -value "railingH"`;
+	float $railingR = `floatSliderGrp -q -value "railingR"`;
+	float $handrailR = `floatSliderGrp -q -value "handrailR"`;
+    createStairs($stepNumber, $stepW, $stepH, $stepD, $railingH, $railingR, $handrailR);
+}

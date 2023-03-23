@@ -1,0 +1,13 @@
+if(`window -exists myWindow`){
+      deleteUI myWindow;  
+}
+window -title "This is my sample window" -widthHeight 320 200 myWindow;
+
+gridLayout -numberOfColumns 2 -cellWidthHeight 150 80;
+
+button -label "Create Shpere" -command "polySphere";
+button -label "Create Cube" -command "polyCube";
+button -label "Ring Nodes (locked)" -command "ringNodes(1)";
+button -label "Ring Nodes (unlocked)" -command "ringNodes(0)";
+
+showWindow myWindow;
